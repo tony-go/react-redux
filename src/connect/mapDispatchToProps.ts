@@ -1,10 +1,10 @@
 import { ActionCreatorsMapObject, Dispatch } from 'redux'
-import { FixTypeLater } from '../types'
 import bindActionCreators from '../utils/bindActionCreators'
+import { MapDispatchToProps } from './selectorFactory'
 import { wrapMapToPropsConstant, wrapMapToPropsFunc } from './wrapMapToProps'
 
 export function whenMapDispatchToPropsIsFunction(
-  mapDispatchToProps: ActionCreatorsMapObject | FixTypeLater
+  mapDispatchToProps: ActionCreatorsMapObject | MapDispatchToProps<any, any>
 ) {
   return typeof mapDispatchToProps === 'function'
     ? wrapMapToPropsFunc(mapDispatchToProps, 'mapDispatchToProps')
